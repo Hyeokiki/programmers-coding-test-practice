@@ -1,0 +1,21 @@
+//22.01.06 음양 더하기 by CJHofficial
+#include <string>
+#include <vector>
+
+using namespace std;
+
+int solution(vector<int> absolutes, vector<bool> signs) {
+    int answer = 0;
+    int s = 1;
+    for (int i = 0; i < signs.size(); i++) {
+        if (signs[i]) {
+            s = 1;
+        }
+        else {
+            s = -1;
+        }
+        answer += (s * absolutes[i]);
+    }
+
+    return answer;
+}
