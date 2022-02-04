@@ -14,9 +14,11 @@ vector<int> solution(int rows, int columns, vector<vector<int>> queries) {
     int startRow, startCol;
     int finalRow, finalCol;
     for (auto v : queries) {
-        nowRow = v[0];
-        nowCol = v[1];
-        for (int i = nowCol; i < )
+        startRow = v[0];
+        startCol = v[1];
+        for (int i = startCol; i < v.size(); i++) {
+
+        }
     }
     return answer;
 }
