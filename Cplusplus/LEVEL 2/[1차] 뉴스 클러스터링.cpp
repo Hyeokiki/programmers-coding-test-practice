@@ -18,26 +18,23 @@ int solution(string str1, string str2) {
     for (int i = 0; i < str2.size(); i++) {
         str2[i] = tolower(str2[i]);
     }
-    for (int i = 0; i < str1.size(); i++) {
+    for (int i = 0; i < str1.size() - 1; i++) {
         if (!isalpha(str1[i])) continue;
-        for (int j = i + 1; j < str1.size(); j++) {
-            if (!isalpha(str1[j])) continue;
-            string s = "";
-            s += str1[i];
-            s += str1[j];
-            setA[s]++;
-        }
+        if (!isalpha(str1[i + 1])) continue;
+        string s = "";
+        s += str1[i];
+        s += str1[i + 1];
+        setA[s]++;
     }
-    for (int i = 0; i < str2.size(); i++) {
+    for (int i = 0; i < str2.size() - 1; i++) {
         if (!isalpha(str2[i])) continue;
-        for (int j = i + 1; j < str2.size(); j++) {
-            if (!isalpha(str2[j])) continue;
-            string s = "";
-            s += str2[i];
-            s += str2[j];
-            setB[s]++;
-        }
+        if (!isalpha(str2[i + 1])) continue;
+        string s = "";
+        s += str2[i];
+        s += str2[i + 1];
+        setB[s]++;
     }
+    if (setA.empty() && setB.empty()) return 65536;
     double comb = 0;
     double inter = 0;
     for (auto p : setA) {
@@ -61,8 +58,6 @@ int solution(string str1, string str2) {
             inter += min(p.second, setB[p.first]);
         }
     }
-    cout << inter << "\t" << comb;
-    double jacob = inter / comb;
-    answer = 65536 * jacob;
+    answer = 65536 * inter / comb;
     return answer;
 }
