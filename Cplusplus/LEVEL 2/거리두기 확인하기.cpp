@@ -16,7 +16,7 @@ void dfs(int row, int col, int step) {
     if (roomArr[row][col] < 0) {
         return;
     }
-    else if (roomArr[row][col] > 0 && step > 1) {
+    else if (roomArr[row][col] > 0 && step >= 1) {
         flag = -1;
         return;
     }
